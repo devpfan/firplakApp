@@ -4,6 +4,8 @@ import com.firplak.firplakApp.model.Cliente;
 import com.firplak.firplakApp.model.Pedido;
 import com.firplak.firplakApp.repository.clienteRepository;
 import com.firplak.firplakApp.repository.pedidoRepository;
+import com.firplak.firplakApp.service.ClienteService;
+import com.firplak.firplakApp.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +15,9 @@ import java.util.List;
 public class Controller {
 
     @Autowired
-    private clienteRepository repo;
+    private ClienteService clienteService;
     @Autowired
-    private pedidoRepository pedidoRepo;
+    private PedidoService pedidoService;
 
     @GetMapping()
     public String prueba(){
@@ -25,24 +27,23 @@ public class Controller {
 
     @PostMapping("/crearCliente")  //Metodo post para agregar clientes nuevos
         public String saveCliente(@RequestBody Cliente cliente){
-        repo.save(cliente);
+        clienteService.saveCliente(cliente);
         return "Cliente ingresado exitosamente";
     }
-
     @GetMapping("/cliente")
     public List<Cliente> getCliente(){
-        return repo.findAll();
+        return clienteService.getAllClientes();
     }
-
 
     @PostMapping("/crearPedido")
     public String savePedido(@RequestBody Pedido pedido) {
-        pedidoRepo.save(pedido);
+        pedidoService.savePedido(pedido);
         return "Pedido creado exitosamente.";
+
     }
 
     @GetMapping("/pedido")
     public List<Pedido> getPedido() {
-        return pedidoRepo.findAll();
+         return pedidoService.getAllPedidos();
     }
 }
