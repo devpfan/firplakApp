@@ -1,6 +1,6 @@
 package com.firplak.firplakApp.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,9 +21,10 @@ public class Pedido {
     @Setter
     @Getter
     @Column
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fecha_pedido;
 
-    @JsonIgnore
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
     @Setter
@@ -34,6 +35,7 @@ public class Pedido {
     @Setter
     @Getter
     @Column
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fecha_entrega;
 
     @Setter

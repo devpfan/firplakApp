@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CollectionId;
 
+import java.util.List;
+
 @Entity
 @Table(name ="clientes")
 public class Cliente {
@@ -33,6 +35,9 @@ public class Cliente {
     @Setter
     @Column
     private String direccion;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos;
 
 
 }
