@@ -15,11 +15,8 @@ import java.util.List;
 @Controller
 public class ClienteController {
 
-
-
    @Autowired
     private ClienteService clienteService;
-
 
     @GetMapping("/clientes/mostrar")
     public String mostrarClientes(Model model) {
