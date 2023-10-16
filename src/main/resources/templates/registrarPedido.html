@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Pedido</title>
+</head>
+<body>
+<div class="container">
+    <h1>Registrar Pedido</h1>
+    <form th:action="@{/pedidos/registrar}" th:object="${pedido}" method="post">
+        <div class="form-group">
+            <label for="cliente">Cliente:</label>
+
+            <select id="cliente" name="cliente" th:field="*{cliente}" required>
+
+                <option th:each="cliente : ${clientes}" th:value="${cliente.cliente_id}" th:text="${cliente.nombre_cliente}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fecha_pedido">Fecha del Pedido:</label>
+            <input type="text" id="fecha_pedido" name="fecha_pedido" th:field="*{fecha_pedido}" required pattern="^\d{4}-\d{2}-\d{2}$">
+        </div>
+        <div class="form-group">
+            <label for="fecha_entrega">Fecha de Entrega:</label>
+            <input type="text" id="fecha_entrega" name="fecha_entrega" th:field="*{fecha_entrega}"required pattern="^\d{4}-\d{2}-\d{2}$">
+        </div>
+        <div class="form-group">
+            <label for="estado_pedido">Estado del Pedido:</label>
+            <input type="text" id="estado_pedido" name="estado_pedido" th:field="*{estado_pedido}" required>
+        </div>
+
+        <button type="submit">Registrar</button>
+    </form>
+</div>
+</body>
+</html>

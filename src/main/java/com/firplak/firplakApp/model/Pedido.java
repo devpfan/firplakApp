@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -16,12 +17,13 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter
     @Getter
-    private long pedido_id;
+    private Long pedido_id;
 
     @Setter
     @Getter
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha_pedido;
 
 
@@ -29,13 +31,14 @@ public class Pedido {
     @JoinColumn(name = "cliente_id")
     @Setter
     @Getter
-    private Cliente cliente;//mapeo de la relacion para facilitar el acceso y las operaciones posteriores
+    private Cliente cliente;
 
 
     @Setter
     @Getter
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha_entrega;
 
     @Setter
