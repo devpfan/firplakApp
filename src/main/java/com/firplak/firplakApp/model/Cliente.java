@@ -3,8 +3,6 @@ package com.firplak.firplakApp.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CollectionId;
-
 import java.util.List;
 
 @Entity
@@ -14,7 +12,7 @@ public class Cliente {
     @Id
     @Getter
     @Setter
-    private long cliente_id;
+    private Long cliente_id;
 
     @Getter
     @Setter
@@ -38,6 +36,4 @@ public class Cliente {
 
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos;
-
-
 }
