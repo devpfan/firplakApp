@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles de la Entrega</title>
+</head>
+<body>
+<h2>Detalles de la Entrega</h2>
+<table>
+    <tr>
+        <td>ID:</td>
+        <td th:text="${entrega.entregaID}"></td>
+    </tr>
+    <tr>
+        <td>Fecha de Entrega:</td>
+        <td th:text="${entrega.fechaEntrega}"></td>
+    </tr>
+    <tr>
+        <td>Firma del Cliente:</td>
+        <td th:text="${entrega.firmaCliente}"></td>
+    </tr>
+    <tr>
+        <td>Observaciones:</td>
+        <td th:text="${entrega.observaciones}"></td>
+    </tr>
+</table>
+<a th:href="@{/entregas/todas}">Volver a la Lista</a>
+</body>
+</html>

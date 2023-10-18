@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Entregas</title>
+    <link rel="stylesheet" type="text/css" href="/static/estilo.css">
+</head>
+<body>
+<h2>Lista de Entregas</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Fecha de Entrega</th>
+        <th>Firma del Cliente</th>
+        <th>Observaciones</th>
+        <th>Detalles</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="entrega : ${entregas}">
+        <td th:text="${entrega.entregaID}"></td>
+        <td th:text="${entrega.fechaEntrega}"></td>
+        <td th:text="${entrega.firmaCliente}"></td>
+        <td th:text="${entrega.observaciones}"></td>
+        <td><a th:href="@{/entregas/{entregaId}(entregaId=${entrega.entregaID})}">Detalles</a></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/entregas/registrar}">Registrar Nueva Entrega</a>
+</body>
+</html>

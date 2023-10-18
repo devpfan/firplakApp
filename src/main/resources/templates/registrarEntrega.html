@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Entrega</title>
+    <link rel="stylesheet" th:href="@{/static/estilo.css}"/>
+
+</head>
+<body>
+<h2>Registrar Entrega</h2>
+<form th:action="@{/entregas/registrar}" th:object="${entrega}" method="post">
+
+    <label for="pedidoId">Pedido ID:</label>
+    <input type="text" id="pedidoId" name="pedido.pedido_id" required>
+    <br>
+
+    <label for="fechaEntrega">Fecha de Entrega:</label>
+    <input type="date" id="fechaEntrega" name="fechaEntrega" required placeholder="YYYY-MM-DD">
+    <br>
+
+    <label for="firmaCliente">Firma del Cliente:</label>
+    <input type="text" id="firmaCliente" name="firmaCliente" required>
+    <br>
+
+    <label for="observaciones">Observaciones:</label>
+    <textarea id="observaciones" name="observaciones"></textarea>
+    <br>
+    <button type="submit">Registrar Entrega</button>
+</form>
+</body>
+</html>

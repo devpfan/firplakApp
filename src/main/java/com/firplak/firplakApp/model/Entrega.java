@@ -1,8 +1,10 @@
 package com.firplak.firplakApp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -19,12 +21,14 @@ public class Entrega {
 
     @ManyToOne
     @JoinColumn(name="pedido_id")
+    @JsonIgnore
     @Getter
     @Setter
     private Pedido pedido;
 
     @Column(name="fecha_entrega")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Getter
     @Setter
     private Date fechaEntrega;
@@ -32,7 +36,7 @@ public class Entrega {
     @Column(name="firma_cliente")
     @Getter
     @Setter
-    private String firmaCLiente;
+    private String firmaCliente;
 
     @Column(name="observaciones", columnDefinition = "TEXT")
     @Getter
