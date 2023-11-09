@@ -12,13 +12,12 @@ import java.util.Date;
 @Entity
 @Table(name="pedido")
 public class Pedido {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter
     @Getter
-    private Long pedido_id;
 
+    private Long pedido_id;
     @Setter
     @Getter
     @Column
@@ -26,13 +25,11 @@ public class Pedido {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha_pedido;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
     @Setter
     @Getter
     private Cliente cliente;
-
 
     @Setter
     @Getter

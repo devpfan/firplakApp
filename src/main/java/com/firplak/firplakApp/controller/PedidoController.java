@@ -21,15 +21,12 @@ public class PedidoController {
     private PedidoService pedidoService;
     @Autowired
     private ClienteService clienteService;
-
-
     @GetMapping("/pedidos/mostrar")
     public String mostrarPedidos(Model model) {
         List<Pedido> pedidos = pedidoService.getAllPedidos();
         model.addAttribute("pedidos", pedidos);
         return "listarPedidos";
     }
-
     @PostMapping("/pedidos/registrar")
     public String guardarPedido(Pedido pedido) {
         pedidoService.savePedido(pedido);

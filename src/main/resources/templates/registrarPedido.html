@@ -30,11 +30,9 @@
             <label for="estado_pedido">Estado del Pedido:</label>
             <input type="text" id="estado_pedido" name="estado_pedido" th:field="*{estado_pedido}" required>
         </div>
-
         <button type="submit">Registrar</button>
     </form>
 </div>
-
 <div>
     <a th:href="@{/pedidos/mostrar}" class="btn btn-primary">Listar pedidos</a>
 </div>
